@@ -1,8 +1,8 @@
-﻿var name = "Basia";
+﻿var name = "Ewa";
 var sex = 'k';
-var age = 27;
+var age = 30;
 
-if (sex == 'k' && age < 30)
+if (sex == 'k' && age <= 30)
 {
     if (name == "Ewa" && age == 30)
     {
