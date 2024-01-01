@@ -1,17 +1,14 @@
-﻿var name = "Ewa";
+﻿var name = "Madzia";
 var sex = 'k';
-var age = 30;
+var age = 29;
 
-if (sex == 'k' && age <= 30)
+if (sex == 'k' && age < 30)
 {
-    if (name == "Ewa" && age == 30)
-    {
-        Console.WriteLine("Ewa, lat 30");
-    }
-    else
-    {
-        Console.WriteLine("Kobieta poniżej 30 lat");
-    }
+    Console.WriteLine("Kobieta poniżej 30 lat");
+}
+else if (name == "Ewa" && age == 30)
+{
+    Console.WriteLine("Ewa, lat 30");
 }
 else if (sex == 'm' && age < 18)
 {
