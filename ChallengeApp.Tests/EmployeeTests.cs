@@ -3,58 +3,58 @@ namespace ChallengeApp.Tests
     public class Tests
     {
         [Test]
-        public void WhenEmployeeCollectPostiveScores_ShouldCorrectResult()
+        public void EmployeeCollectsGrades_ShouldReturnCorrectMax()
         {
             //arrange
-            var employee = new Employee("Micha³", "Banan", "32");
-            employee.AddScore(6);
-            employee.AddScore(2);
-            employee.AddScore(8);
-            employee.AddScore(3);
+            var employee = new Employee("Micha³", "Banan");
+            employee.AddGrade(6);
+            employee.AddGrade(4);
+            employee.AddGrade(2);
+
 
             //act
-            var result = employee.Result;
+            var result = employee.GetStatistics();
 
             //assert
 
-            Assert.AreEqual(19, result);
+            Assert.AreEqual(6, result.Max);
         }
 
         [Test]
-        public void WhenEmployeeCollectNegativeScores_ShouldCorrectResult()
+        public void EmployeeCollectsGrades_ShouldReturnCorrectMin()
+
         {
             //arrange
-            var employee = new Employee("Micha³", "Banan", "32");
-            employee.AddScore(-6);
-            employee.AddScore(-2);
-            employee.AddScore(-2);
-            employee.AddScore(-2);
+            var employee = new Employee("Micha³", "Banan");
+            employee.AddGrade(6);
+            employee.AddGrade(4);
+            employee.AddGrade(2);
+
 
             //act
-            var result = employee.Result;
+            var result = employee.GetStatistics();
 
             //assert
 
-            Assert.AreEqual(-12, result);
+            Assert.AreEqual(2, result.Min);
         }
 
         [Test]
-        public void WhenEmployeeCollectPositiveScoresAndNegativeScores_ShouldCorrectResult()
+        public void EmployeeCollectsGrades_ShouldReturnCorrectAverage()
         {
             //arrange
-            var employee = new Employee("Micha³", "Banan", "32");
-            employee.AddScore(6);
-            employee.AddScore(-2);
-            employee.AddScore(4);
-            employee.AddScore(-7);
+            var employee = new Employee("Micha³", "Banan");
+            employee.AddGrade(6);
+            employee.AddGrade(4);
+            employee.AddGrade(2);
+
 
             //act
-            var result = employee.Result;
+            var result = employee.GetStatistics();
 
             //assert
 
-            Assert.AreEqual(1, result);
-
+            Assert.AreEqual(4, result.Average);
         }
     }
 }

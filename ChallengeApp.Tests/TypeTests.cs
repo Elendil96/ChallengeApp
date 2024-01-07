@@ -6,8 +6,8 @@
         public void GetEmployeeShouldReturnDiffrentObjects()
         {
             //arrange
-            var employee1 = GetEmployee("Marcin", "Jur", "20");
-            var employee2 = GetEmployee("Andrzej", "Gierer", "57");
+            var employee1 = GetEmployee("Marcin", "Jur");
+            var employee2 = GetEmployee("Andrzej", "Gierer");
 
             //act
 
@@ -17,9 +17,9 @@
 
         }
 
-        private Employee GetEmployee(string name, string surname, string age)
+        private Employee GetEmployee(string name, string surname)
         {
-            return new Employee (name, surname, age);
+            return new Employee (name, surname);
         }
 
         [Test]
