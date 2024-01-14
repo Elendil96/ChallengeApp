@@ -12,7 +12,6 @@ namespace ChallengeApp
         {
             this.name = name;
             this.surname = surname;
-
         }
 
         public string name { get; private set; }
@@ -27,7 +26,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine($"Wrong grade value. {grade} is out of range");
+                throw new Exception("Invalid grade value");
             }
         }
 
@@ -62,8 +61,7 @@ namespace ChallengeApp
                         this.grades.Add(20);
                         break;
                     default:
-                        Console.WriteLine($"{grade} is not a grade.");
-                        break;
+                        throw new Exception("Wrong letter");
                 }
             }
         }
@@ -76,7 +74,7 @@ namespace ChallengeApp
 
         public void AddGrade(char grade)
         {
-           
+
         }
 
         public Statistics GetStatistics()
@@ -109,12 +107,13 @@ namespace ChallengeApp
                 case var average when average >= 20:
                     statistics.AverageLetter = 'D';
                     break;
-                default: 
+                default:
                     statistics.AverageLetter = 'E';
                     break;
             }
 
             return statistics;
+
         }
     }
 }

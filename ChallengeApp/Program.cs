@@ -10,11 +10,19 @@ while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika");
     var input = Console.ReadLine();
-    if(input == "q")
+    if (input == "q")
     {
         break;
     }
-    employee.AddGrade(input);
+    try
+    {
+        employee.AddGrade(input);
+    }
+
+    catch (Exception exception)
+    {
+        Console.WriteLine($"Exceptions catched {exception.Message}");
+    }
 }
 
 var statisctics = employee.GetStatistics();
