@@ -26,7 +26,7 @@ namespace ChallengeApp
             }
             else
             {
-                throw new Exception("Invalid grade value");
+                throw new Exception($"{grade} - Invalid grade value");
             }
         }
 
@@ -61,7 +61,7 @@ namespace ChallengeApp
                         this.grades.Add(20);
                         break;
                     default:
-                        throw new Exception("Wrong letter");
+                        throw new Exception($"{grade} - Wrong letter");
                 }
             }
         }
