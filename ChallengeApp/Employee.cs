@@ -32,49 +32,47 @@ namespace ChallengeApp
 
         public void AddGrade(string grade)
         {
-            if (float.TryParse(grade, out float reuslt))
+            if (float.TryParse(grade, out float result))
             {
-                this.AddGrade(reuslt);
+                this.AddGrade(result);
             }
-            else
+            else if (char.TryParse(grade, out char resultChar))
             {
-                switch (grade)
+                switch (resultChar)
                 {
-                    case "A":
-                    case "a":
-                        this.grades.Add(100);
+                    case 'A':
+                    case 'a':
+                        this.AddGrade(100);
                         break;
-                    case "B":
-                    case "b":
-                        this.grades.Add(80);
+                    case 'B':
+                    case 'b':
+                        this.AddGrade(80);
                         break;
-                    case "C":
-                    case "c":
-                        this.grades.Add(60);
+                    case 'C':
+                    case 'c':
+                        this.AddGrade(60);
                         break;
-                    case "D":
-                    case "d":
-                        this.grades.Add(40);
+                    case 'D':
+                    case 'd':
+                        this.AddGrade(40);
                         break;
-                    case "E":
-                    case "e":
-                        this.grades.Add(20);
+                    case 'E':
+                    case 'e':
+                        this.AddGrade(20);
                         break;
                     default:
                         throw new Exception($"{grade} - Wrong letter");
                 }
             }
+            else
+            {
+                throw new Exception($"{grade} - String in not float");
+            }
         }
-
+       
         public void AddGrade(double grade)
         {
-
             this.AddGrade((float)grade);
-        }
-
-        public void AddGrade(char grade)
-        {
-
         }
 
         public Statistics GetStatistics()
