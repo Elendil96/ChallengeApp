@@ -1,23 +1,15 @@
-﻿using System;
-using System.Diagnostics;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
-    public class Employee
+    public class Employee : Person
     {
         private List<float> grades = new List<float>();
 
-        public Employee(string name, string surname)
+        public Employee(string name, string surname, char sex)
+            : base(name, surname, sex)
         {
-            this.name = name;
-            this.surname = surname;
-        }
 
-        public string name { get; private set; }
-        public string surname { get; private set; }
-
-
+        } 
+        
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
@@ -69,7 +61,7 @@ namespace ChallengeApp
                 throw new Exception($"{grade} - String in not float");
             }
         }
-       
+
         public void AddGrade(double grade)
         {
             this.AddGrade((float)grade);
