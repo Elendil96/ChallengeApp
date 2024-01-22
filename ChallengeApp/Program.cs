@@ -4,7 +4,7 @@ Console.WriteLine("Witamy w programie do oceny praconików");
 Console.WriteLine("======================================");
 Console.WriteLine();
 
-var employee = new Employee("Marek", "Golan", 'M');
+var employee = new Employee("Marek", "Golan", "M");
 
 while (true)
 {
@@ -31,3 +31,33 @@ Console.WriteLine($"AVG: {statisctics.Average}");
 Console.WriteLine($"MIN: {statisctics.Min}");
 Console.WriteLine($"MAX: {statisctics.Max}");
 Console.WriteLine($"AVG LETTER: {statisctics.AverageLetter}");
+Console.WriteLine();
+
+
+var supervisior = new Supervisor("Arek", "Golan", "M");
+
+while (true)
+{
+    Console.WriteLine("Podaj kolejną ocenę pracownika");
+    var input = Console.ReadLine();
+    if (input == "q")
+    {
+        break;
+    }
+    try
+    {
+        supervisior.AddGrade(input);
+    }
+
+    catch (Exception exception)
+    {
+        Console.WriteLine($"Exceptions catched {exception.Message}");
+    }
+}
+
+var statiscticsSupervisior = supervisior.GetStatistics();
+Console.WriteLine();
+Console.WriteLine($"AVG: {statiscticsSupervisior.Average}");
+Console.WriteLine($"MIN: {statiscticsSupervisior.Min}");
+Console.WriteLine($"MAX: {statiscticsSupervisior.Max}");
+Console.WriteLine($"AVG LETTER: {statiscticsSupervisior.AverageLetter}");
