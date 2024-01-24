@@ -6,6 +6,8 @@
 
         public string Surname { get; }
 
+        public string Sex { get; }
+
         void AddGrade(float grade);
 
         void AddGrade(double grade);

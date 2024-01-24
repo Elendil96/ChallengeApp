@@ -1,24 +1,15 @@
 ﻿namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    public class EmployeeInMemory : EmployeeBase
     {
         private List<float> grades = new List<float>();
 
-        public Employee(string name, string surname, string sex)
+        public EmployeeInMemory(string name, string surname, string sex)
+            : base(name, surname, sex)
         {
-            this.Name = name;
-            this.Surname = surname;
-            this.Sex = sex;
         }
 
-        public string Name { get; private set; }
-
-        public string Surname { get; private set; }
-
-        public string Sex { get; private set; }
-
-
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -30,7 +21,12 @@
             }
         }
 
-        public void AddGrade(string grade)
+        public override void AddGrade(double grade)
+        {
+            this.AddGrade((float)grade);
+        }
+
+        public override void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
             {
@@ -70,12 +66,7 @@
             }
         }
 
-        public void AddGrade(double grade)
-        {
-            this.AddGrade((float)grade);
-        }
-
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
