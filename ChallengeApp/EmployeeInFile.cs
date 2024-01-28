@@ -4,6 +4,8 @@
     {
         private const string fileName = @"C:\Users\marci\OneDrive\Pulpit\Projekty\ChallengeApp\ChallengeApp\grades.txt";
 
+        public override event GradeAddedDelegate GradeAdded;
+
         public EmployeeInFile(string name, string surname, string sex)
             : base(name, surname, sex)
         {
@@ -16,6 +18,11 @@
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);
+
+                    if (GradeAdded != null)
+                    {
+                        GradeAdded(this, new EventArgs());
+                    }
                 }
             }
             else

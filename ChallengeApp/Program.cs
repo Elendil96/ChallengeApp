@@ -5,10 +5,15 @@ Console.WriteLine("======================================");
 Console.WriteLine();
 
 var employee = new EmployeeInFile("Marek", "Golan", "M");
+employee.GradeAdded += EmployeeGradeAdded;
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano nową ocenę");
+}
 
 while (true)
 {
-
     Console.WriteLine("Podaj kolejną ocenę pracownika");
     var input = Console.ReadLine();
     if (input == "q")
