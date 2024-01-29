@@ -37,4 +37,6 @@ Console.WriteLine($"AVG: {statisctics.Average}");
 Console.WriteLine($"MIN: {statisctics.Min}");
 Console.WriteLine($"MAX: {statisctics.Max}");
 Console.WriteLine($"AVG LETTER: {statisctics.AverageLetter}");
+Console.WriteLine($"COUNT: {statisctics.Count}");
+Console.WriteLine($"SUM: {statisctics.Sum}");
 Console.WriteLine();
